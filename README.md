@@ -1,4 +1,4 @@
-![ER Diagram](./path/to/DB.png)
+
 
 ![DB](https://github.com/ConniConni/joinunion/assets/127648505/afc7cce4-7bf7-4182-a511-4067f286372a)
 
@@ -24,7 +24,7 @@
 ## posts table
 
 | Column | Type       | Options                        |
-|----- --|------------|--------------------------------|
+|--------|------------|--------------------------------|
 | text   | string     | null: false                    |
 | user   | references | null: false, foreign_key: true |
 
@@ -45,4 +45,41 @@
 
 - belongs_to :post
 - belongs_to :user
+
+## surverys table
+
+| Column       | Type       | Options                        |
+|--------------|------------|--------------------------------|
+| question     | string     | null: false                    |
+| user         | references | null: false, foreign_key: true |
+
+### Association
+
+- has_many :choices
+- belongs_to :user
+
+## choicess table
+
+| Column       | Type       | Options                        |
+|--------------|------------|--------------------------------|
+| answer       | string     | null: false                    |
+| survey       | references | null: false, foreign_key: true |
+
+### Association
+
+- has_many :responses
+- belongs_to :survey
+
+## surverys table
+
+| Column       | Type       | Options                        |
+|--------------|------------|--------------------------------|
+| choice       | string     | null: false                    |
+| user         | references | null: false, foreign_key: true |
+
+### Association
+
+- has_many :choices
+- belongs_to :user
+
 
